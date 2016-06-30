@@ -1,0 +1,6 @@
+<div ng-dblclick="gotoEdit();">
+    <span ng-hide="isInEdit">{{data}}</span>
+    <input ng-show="isInEdit"  type="text" ng-model="data"/>
+    <button ng-show="isInEdit" class="btn btn-primary" ng-click="save();">Save</button>
+    <button ng-show="isInEdit" ng-click="rollBack();" class="btn btn-danger">Cancel</button>
+</div>

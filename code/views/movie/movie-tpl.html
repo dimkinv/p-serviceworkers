@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-md-12">
+        <form id="movieForm" >
+            <div class="form-group">
+                <label for="imdbID">Movie IMDB id:</label>
+                <input disabled="disabled" ng-model="model.currentMovie.imdbId" id="imdbID" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input ng-model="model.currentMovie.title" id="title" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="rDate">Release Date:</label>
+                <input ng-model="model.currentMovie.releaseDate" id="rDate" type="date" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="rCountry">Release Country:</label>
+                <input ng-model="model.currentMovie.releaseCountry" id="rCountry" type="text" class="form-control" />
+            </div>
+            <button class="btn btn-primary" ng-click="events.save()" ng-bind="model.imdbId === 'new' ? 'Save' : 'Update'"></button>
+            <button class="btn btn-warning" ui-sref="list">Cancel</button>
+        </form>
+    </div>
+</div>

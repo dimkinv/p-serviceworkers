@@ -1,0 +1,28 @@
+<div class="row row-spacing-top">
+    <div class="col-md-8">
+        <input class="form-control" type="text" ng-model="moviesFilter" placeholder="Enter search filter..."/>
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-primary" ui-sref="movie({imdbId:'new'})">Add New Movie</button>
+    </div>
+</div>
+
+<div class="row row-spacing-top">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <tr>
+                <th ng-click="currentOrder = 'title'">Name</th>
+                <th ng-click="currentOrder = 'releaseDate'">Release Date</th>
+                <th ng-click="currentOrder = 'releaseCountry'">Release Country</th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="movie in model.movies | filter: moviesFilter | orderBy: currentOrder">
+                <td><div edit-directive="movie.title" on-save="events.save(movie)"></div></td>
+                <td><div edit-directive="movie.releaseDate" on-save="events.save(movie)"></div></td>
+                <td ui-sref="movie({imdbId: '{{movie.imdbId}}'})" >{{movie.releaseCountry}}</td>
+                <td><span class="glyphicon glyphicon-remove" ng-click="events.remove(movie)"></span></td>
+            </tr>
+            <tr>
+        </table>
+    </div>
+</div>
